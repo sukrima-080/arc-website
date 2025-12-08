@@ -6,9 +6,9 @@ import React from "react";
 // Data for team officials and links
 const teamMembers = [
   { role: "President", name: "Aayush Raj Nepal" },
-  { role: "Event Lead", name: "Charlie" },
-  { role: "Tech Lead", name: "Charlie" },
-  { role: "Design Lead", name: "Charlie" },
+  { role: "Event Lead", name: "Bhuwan Basnet" },
+  { role: "Tech Lead", name: "Sonu Alam, Joyash Shrestha" },
+  { role: "Design Lead", name: "Ritika Budhathoki" },
 ];
 
 const links = [

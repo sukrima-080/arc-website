@@ -233,7 +233,7 @@ const EVENTS = [
     id: "techfest-olympiad",
     label: "Techfest Olympiad",
     subtitle: "Real-life and analytical challenges.",
-    image: "/events/circuit.jpg",
+    image: "/events/techfest.jpeg",
     rulebook: "/rulebook/TechfestOlympiad.pdf",
     eventDetailId: "techfest-olympiad", // Maps to Techfest Olympiad
   },

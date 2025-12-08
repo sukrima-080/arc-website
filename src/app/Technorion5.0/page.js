@@ -12,12 +12,14 @@ import AboutUs from "../components/AboutUs";
 import Footer from "../components/Footer";
 import RegistrationDataSlabs from "../components/Register";
 import RegistrationDeadlineModal from "../components/DeadLinePopup";
+import BotPosterCard from "../components/Poster";
 // import EventDetailsG from "../components/EventDetailsG";
 
 export default function Home() {
   return (
     <>
-      <div className="min-h-screen h-full w-full flex flex-col">
+      <div className="min-h-screen h-full w-full flex flex-col"> 
+        <BotPosterCard/>
         <BackgroundPaths title="A Fusion of Bots, Bytes, and Brilliance." />
         <TechEventStats /> 
         <Marquee />
@@ -31,7 +33,7 @@ export default function Home() {
       <RegistrationDeadlineModal/>
         <RegistrationForms/>
         <EventFaqs />
-        <AboutUs />
+        {/* <AboutUs /> */}
         <Timeline />
         <Footer/>
         <Carousel />
