@@ -128,7 +128,7 @@ const forms = [
 
 export default function RegistrationForms() {
   return (
-    <section className="relative bg-black text-white py-28 px-4 sm:px-8 lg:px-16 overflow-hidden">
+    <section id="registration-forms" className="relative bg-black text-white py-28 px-4 sm:px-8 lg:px-16 overflow-hidden">
       {/* Background Effects */}
       <div className="pointer-events-none absolute inset-0 opacity-50">
         <div className="absolute top-0 left-1/3 w-[40rem] h-[40rem] bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.15),transparent_60%)]" />
