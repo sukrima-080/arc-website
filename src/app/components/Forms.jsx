@@ -128,7 +128,7 @@ const forms = [
 
 export default function RegistrationForms() {
   return (
-    <section className="bg-black text-white py-28 px-4 sm:px-8 lg:px-16">
+    <section  id="registration-forms"  className="bg-black text-white py-28 px-4 sm:px-8 lg:px-16">
       {/* Header */}
       <header className="text-center mb-24">
         <p className="text-xs uppercase tracking-[0.35em]  text-blue-400/80 font-mono mb-4">
