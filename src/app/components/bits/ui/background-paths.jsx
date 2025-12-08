@@ -205,45 +205,13 @@ export function BackgroundPaths({ title = "A Fusion of Bots, Bytes, and Brillian
               <CountdownTimer target={eventDate} />
             </div>
 
-            {/* content surface - only show on desktop */}
-            {!isMobile && (
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none cursor-none">
-                {/* If we decided not to use spline (reduced motion) → static image */}
-                {!canUseSpline && (
-                  <BotPosterCard/>
-                )}
-
-                {/* If we CAN use Spline, show skeleton until it's loaded */}
-                {canUseSpline && !splineLoaded && (
-                  <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(148,163,184,0.25)_0,rgba(15,23,42,1)_70%)] animate-pulse" />
-                )}
-
-                {canUseSpline && (
-                  <div
-                    className={`w-full h-full transition-opacity duration-700 ${
-                      splineLoaded ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
-                    <Spline
-                      scene="https://prod.spline.design/DOb-XOtTm0p2HUPE/scene.splinecode"
-                      style={{ width: "100%", height: "100%" }}
-                      onLoad={() => setSplineLoaded(true)}
-                      onError={() => {
-                        setSplineError(true);
-                        setSplineLoaded(false);
-                      }}
-                    />
-                  </div>
-                )}
-
-                {/* Fallback if Spline fails to load */}
-                {canUseSpline && splineError && (
-                  <BotPosterCard/>
-                )}
-              </div>
-            )}
+       
           </div>
         </div>
+{/* content surface */}
+<div className="absolute inset-0 flex items-center justify-center pointer-events-none mb-20">
+  <BotPosterCard />
+</div>
 
 
 
@@ -251,7 +219,8 @@ export function BackgroundPaths({ title = "A Fusion of Bots, Bytes, and Brillian
 
 
           {/* Tagline text */}
-          <h1 className="mt-4 text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-10 tracking-tighter">
+          <h1 className="mt-44 text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-10 tracking-tighter">
+
             {words.map((word, wordIndex) => (
               <span key={wordIndex} className="inline-block mr-3 sm:mr-4 last:mr-0">
                 {word.split("").map((letter, letterIndex) => (

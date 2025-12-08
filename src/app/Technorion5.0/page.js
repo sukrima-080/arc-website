@@ -11,6 +11,7 @@ import EventDetails from "../components/EventDetails";
 import AboutUs from "../components/AboutUs";
 import Footer from "../components/Footer";
 import RegistrationDataSlabs from "../components/Register";
+import RegistrationDeadlineModal from "../components/DeadLinePopup";
 // import EventDetailsG from "../components/EventDetailsG";
 
 export default function Home() {
@@ -27,7 +28,7 @@ export default function Home() {
         <EventDetails/> 
 
         <RegistrationDataSlabs/>
-      
+      <RegistrationDeadlineModal/>
         <RegistrationForms/>
         <EventFaqs />
         <AboutUs />
