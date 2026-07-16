@@ -1,32 +1,16 @@
-# Advanced Robotics Club (ARC) - ACEM 🤖
+# React + Vite
 
-![ARC Logo](./public/arc.png)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Welcome to the official repository for the **Advanced Robotics Club (ARC)** at the [Advanced College of Engineering and Management (ACEM)](http://arc.acem.edu.np). 
+Currently, two official plugins are available:
 
-Established in 2012 in Kalanki, Nepal, ARC is a vibrant community of robotics enthusiasts, engineers, and innovators. We are committed to providing a platform for students to develop their ideas, implement real-world engineering solutions, and become the brightest technical minds in the nation.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
----
+## React Compiler
 
-## 🎯 Our Mission
-To bridge the gap between theoretical knowledge and practical application by fostering a hands-on environment where students can explore robotics, artificial intelligence, and embedded systems.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## 🚀 What We Do
-We annually conduct various training programs, workshops, and national-level competitions, including:
+## Expanding the ESLint configuration
 
-* **Hardware & Electronics:** Hands-on training in custom PCB Designing, advanced soldering techniques, and mechanical assembly.
-* **Programming Seminars:** Logic-building workshops featuring Embedded C and AVR microcontroller programming.
-* **Technorion Nepal:** Proud organizers of the International Selection of Nepal for Techfest, IIT Bombay, for 4 consecutive years.
-* **App-Controlled Robotics:** Building, programming, and racing custom smartphone-controlled robotic systems.
-
----
-
-## 💻 About This Repository (Website)
-This repository contains the source code for the official ARC website. It is built with modern web technologies to ensure a fast, responsive, and highly interactive user experience.
-
-### Tech Stack
-* **Framework:** [Next.js](https://nextjs.org/) (App Router)
-* **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
-* **Animations:** [Framer Motion](https://www.framer.com/motion/)
-* **Icons:** [Lucide React](https://lucide.dev/)
-* **Language:** TypeScript
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
