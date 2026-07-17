@@ -1,16 +1,18 @@
-import { useState } from "react";
-import Layout from "../component/Layout";
-// import RateLimitedUI from "../component/RateLimitedUI";
+import Hero from "../component/home/Hero";
+import About from "../component/home/About";
+import Domains from "../component/home/Domains";
+import FeaturedProjects from "../component/home/FeaturedProjects";
+import CTA from "../component/home/CTA";
 
-const HomePages = () => {
-    // const[isRateLimited, setIsRateLimited]= useState(true);
+export default function HomePages() {
   return (
-    <div className="min-h-screen">
-
-        {/* {isRateLimited && <RateLimitedUI />} */}
-    </div>
+    <>
+      <Hero />
+      <About />
+      <Domains />
+      <FeaturedProjects />
+       
+      <CTA />
+    </>
   );
-};
-export default HomePages
-
-
+}
