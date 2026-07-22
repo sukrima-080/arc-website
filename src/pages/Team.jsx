@@ -30,7 +30,7 @@ export default function Team() {
             className="mb-4 rounded-lg border border-gray-700 p-4"
           >
             <h2 className="text-xl font-semibold">{member.name}</h2>
-            <p>{member.position}</p>
+            <p>{member.role}</p>
             <p>{member.group}</p>
           </div>
         ))}
