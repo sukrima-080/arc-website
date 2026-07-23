@@ -6,7 +6,7 @@ export default function Timeline() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/timeline")
+    fetch("https://arc-backend-d6ft.onrender.com")
       .then((res) => res.json())
       .then((data) => setEvents(data))
       .catch(console.error);

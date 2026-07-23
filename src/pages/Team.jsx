@@ -4,8 +4,15 @@ export default function Team() {
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/users")
-      .then((res) => res.json())
+    const API = import.meta.env.VITE_API_URL;
+
+    fetch(`${API}/api/users`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch members");
+        }
+        return res.json();
+      })
       .then((data) => setMembers(data))
       .catch((err) => console.error(err));
   }, []);
@@ -29,11 +36,10 @@ export default function Team() {
             key={member._id}
             className="bg-neutral-900 rounded-2xl p-6 border border-neutral-700 shadow-lg hover:shadow-blue-500/20 hover:-translate-y-2 transition-all duration-300"
           >
-            {/* Member Photo */}
             <div className="flex justify-center">
               <img
                 src={
-                  member.imageUrl && member.imageUrl !== ""
+                  member.imageUrl
                     ? member.imageUrl
                     : "https://placehold.co/200x200?text=Member"
                 }
@@ -42,17 +48,12 @@ export default function Team() {
               />
             </div>
 
-            {/* Member Details */}
             <div className="text-center mt-5">
               <h2 className="text-2xl font-semibold">{member.name}</h2>
 
-              <p className="text-blue-400 mt-2">
-                {member.role}
-              </p>
+              <p className="text-blue-400 mt-2">{member.role}</p>
 
-              <p className="text-gray-400">
-                {member.group}
-              </p>
+              <p className="text-gray-400">{member.group}</p>
 
               <p className="text-sm text-gray-500 mt-1">
                 Batch {member.batch}
