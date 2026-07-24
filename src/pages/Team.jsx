@@ -9,13 +9,14 @@ export default function Team() {
     console.log("API URL:", API);
 
     fetch(`${API}/api/users`)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to fetch members");
-        }
-        return res.json();
-      })
-      .then((data) => setMembers(data))
+    .then(async (res) => {
+      console.log("Status:", res.status);
+      
+      const data = await res.json();
+      console.log("Data:", data);
+      
+      setMembers(data);
+    })
       .catch((err) => console.error(err));
   }, []);
 
