@@ -4,28 +4,20 @@ export default function Team() {
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
-  //   const API = import.meta.env.VITE_API_URL;
+    const API = import.meta.env.VITE_API_URL;
 
-  //   fetch(`${API}/api/users`)
-  //     .then((res) => {
-  //       if (!res.ok) {
-  //         throw new Error("Failed to fetch members");
-  //       }
-  //       return res.json();
-  //     })
-  //     .then((data) => setMembers(data))
-  //     .catch((err) => console.error(err));
-  // }, []);
-  const API = import.meta.env.VITE_API_URL;
+    console.log("API URL:", API);
 
-console.log("API URL:", API);
-
-useEffect(() => {
-  fetch(`${API}/api/users`)
-    .then((res) => res.json())
-    .then((data) => setMembers(data))
-    .catch(console.error);
-}, []);
+    fetch(`${API}/api/users`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch members");
+        }
+        return res.json();
+      })
+      .then((data) => setMembers(data))
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <div className="px-8 py-24">
