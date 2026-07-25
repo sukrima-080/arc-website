@@ -2,23 +2,32 @@ import { useEffect, useState } from "react";
 
 export default function Team() {
   const [members, setMembers] = useState([]);
+  const API = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    const API = import.meta.env.VITE_API_URL;
-
     console.log("API URL:", API);
 
-    fetch(`${API}/api/users`)
-    .then(async (res) => {
-      console.log("Status:", res.status);
-      
-      const data = await res.json();
-      console.log("Data:", data);
-      
-      setMembers(data);
-    })
-      .catch((err) => console.error(err));
-  }, []);
+    async function loadMembers() {
+      try {
+        const res = await fetch(`${API}/api/users`);
+
+        console.log("Status:", res.status);
+
+        const data = await res.json();
+
+        console.log("Data:", data);
+        console.log("Is Array:", Array.isArray(data));
+
+        setMembers(data);
+      } catch (err) {
+        console.error("Fetch error:", err);
+      }
+    }
+
+    loadMembers();
+  }, [API]);
+
+  console.log("Members state:", members);
 
   return (
     <div className="px-8 py-24">
@@ -33,48 +42,36 @@ export default function Team() {
         Active operatives and veteran corps steering ARC Systems.
       </p>
 
+      <p className="text-red-500 text-xl mb-8">
+        Members Loaded: {members.length}
+      </p>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {members.map((member) => (
           <div
             key={member._id}
-            className="bg-neutral-900 rounded-2xl p-6 border border-neutral-700 shadow-lg hover:shadow-blue-500/20 hover:-translate-y-2 transition-all duration-300"
+            className="bg-neutral-900 rounded-2xl p-6 border border-neutral-700 shadow-lg"
           >
-            <div className="flex justify-center">
-              <img
-                src={
-                  member.imageUrl
-                    ? member.imageUrl
-                    : "https://placehold.co/200x200?text=Member"
-                }
-                alt={member.name}
-                className="w-32 h-32 rounded-full object-cover border-4 border-blue-500"
-              />
-            </div>
+            <img
+              src={
+                member.imageUrl ||
+                "https://placehold.co/200x200?text=Member"
+              }
+              alt={member.name}
+              className="w-32 h-32 rounded-full mx-auto object-cover"
+            />
 
             <div className="text-center mt-5">
-              <h2 className="text-2xl font-semibold">{member.name}</h2>
+              <h2 className="text-2xl font-semibold">
+                {member.name}
+              </h2>
 
-              <p className="text-blue-400 mt-2">{member.role}</p>
+              <p>{member.role}</p>
+              <p>{member.group}</p>
+              <p>Batch {member.batch}</p>
+              <p>{member.email}</p>
 
-              <p className="text-gray-400">{member.group}</p>
-
-              <p className="text-sm text-gray-500 mt-1">
-                Batch {member.batch}
-              </p>
-
-              <p className="text-sm text-gray-500 mt-1">
-                {member.email}
-              </p>
-
-              <span
-                className={`inline-block mt-4 px-3 py-1 rounded-full text-sm ${
-                  member.status === "active"
-                    ? "bg-green-600"
-                    : "bg-yellow-600"
-                }`}
-              >
-                {member.status}
-              </span>
+              <span>{member.status}</span>
             </div>
           </div>
         ))}
