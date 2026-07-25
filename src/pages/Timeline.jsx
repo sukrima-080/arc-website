@@ -9,7 +9,8 @@ export default function Timeline() {
 
     console.log("Timeline API:", API);
 
-    fetch(`${API}/api/timeline`)
+    const baseURL = API.replace(/\/+$/, "");
+    fetch(`${baseURL}/api/timeline`)
       .then(async (res) => {
         console.log("Status:", res.status);
 

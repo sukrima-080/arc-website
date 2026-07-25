@@ -9,7 +9,9 @@ export default function Team() {
 
   console.log("API:", API);
 
-  fetch(`${API}/api/users`)
+  const baseURL = API.replace(/\/+$/, "");
+
+  fetch(`${baseURL}/api/users`)
     .then(async (res) => {
       console.log("Status:", res.status);
 
