@@ -5,27 +5,30 @@ export default function Team() {
   const API = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    console.log("API URL:", API);
+  const API = import.meta.env.VITE_API_URL;
 
-    async function loadMembers() {
+  console.log("API:", API);
+
+  fetch(`${API}/api/users`)
+    .then(async (res) => {
+      console.log("Status:", res.status);
+
+      const text = await res.text();
+      console.log("Raw Response:", text);
+
       try {
-        const res = await fetch(`${API}/api/users`);
-
-        console.log("Status:", res.status);
-
-        const data = await res.json();
-
-        console.log("Data:", data);
-        console.log("Is Array:", Array.isArray(data));
+        const data = JSON.parse(text);
+        console.log("Parsed:", data);
 
         setMembers(data);
-      } catch (err) {
-        console.error("Fetch error:", err);
+      } catch (e) {
+        console.log("JSON Parse Error:", e);
       }
-    }
-
-    loadMembers();
-  }, [API]);
+    })
+    .catch((err) => {
+      console.error("Fetch Error:", err);
+    });
+}, []);
 
   console.log("Members state:", members);
 
